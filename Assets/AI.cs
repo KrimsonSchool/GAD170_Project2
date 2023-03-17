@@ -11,12 +11,12 @@ public class AI : MonoBehaviour
     void Start()
     {
         Self = gameObject.GetComponent<NavMeshAgent>();
-        Self.speed = Speed;
     }
 
     // Update is called once per frame
     void Update()
     {
+        Self.speed = Speed;
         Self.destination = GameObject.FindGameObjectWithTag("Player").transform.position;
     }
 }
