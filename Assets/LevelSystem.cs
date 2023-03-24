@@ -6,21 +6,17 @@ using static UnityEngine.Rendering.HighDefinition.ScalableSettingLevelParameter;
 public class LevelSystem : MonoBehaviour
 {
     StatSystem stats;
+    PowerSystem pwer;
     // Start is called before the first frame update
     void Start()
     {
         stats = GetComponent<StatSystem>();
+        pwer = GetComponent<PowerSystem>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-    }
-    public void testLevelSystem()
-    {
-        stats.xp += 25;
-
         if (stats.xp >= stats.xpThreshold)
         {
             stats.level += 1;
@@ -30,6 +26,11 @@ public class LevelSystem : MonoBehaviour
             stats.statTotal += 5;
 
             stats.testStatSystem();
+            pwer.testPowerSystem();
         }
+    }
+    public void testLevelSystem()
+    {
+        stats.xp += 25;
     }
 }

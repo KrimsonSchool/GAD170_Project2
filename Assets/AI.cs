@@ -18,5 +18,10 @@ public class AI : MonoBehaviour
     {
         Self.speed = Speed;
         Self.destination = GameObject.FindGameObjectWithTag("Player").transform.position;
+
+        if(FindObjectOfType<PowerSystem>().powerLevel >= 50)
+        {
+            Destroy(gameObject);
+        }
     }
 }

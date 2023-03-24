@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 /// <summary>
 /// Functions to complete:
@@ -14,6 +15,45 @@ public class FightManager : MonoBehaviour
     private BattleSystem battleSystem; // stores a reference to the battle system in our scene.
     private Color teamAColour; // stores the current team colour, if there is no team then it will defeault to red for A, and Blue for B
     private Color teamBColour;
+
+    public GameObject[] Characters;
+
+    public float chances;
+    public float chancesT;
+
+    public TMPro.TextMeshProUGUI winChanceText;
+
+    public float[] winChances;
+    public void Start()
+    {
+        if (FindObjectOfType<CharacterNameGenerator>() != null)
+        {
+            Characters = FindObjectOfType<CharacterNameGenerator>().Characters;
+        }
+    }
+
+    public void SimFight()
+    {
+        for (int i = 0; i < Characters.Length; i++)
+        {
+            chancesT += Characters[i].GetComponent<PowerSystem>().powerLevel;
+        }
+
+        for (int i = 0; i < Characters.Length; i++)
+        {
+
+            chances = 100 / chancesT * Characters[i].GetComponent<PowerSystem>().powerLevel;
+
+            print("Player " + i + " chances of winning = " + chances + "%");
+
+            winChances[i] = chances;
+        }
+        chances = 0;
+        chancesT = 0;
+        //print(chances);
+
+        winChanceText.text = "Win Chances: " + winChances[0] + "% VS " + winChances[1] +"%";
+    }
 
     /// <summary>
     /// This function takes in two characters and we need to decide who wins the fight.

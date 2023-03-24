@@ -34,7 +34,7 @@ public class CharacterName : MonoBehaviour
             return;
         }
         // we probably want to grab a random first, last and nick name from the character name generator.
-        nameGenerator.SetIndividualCharacter(this);
+        nameGenerator.SetIndividualCharacter();
         FaceNameToCamera();
     }
 

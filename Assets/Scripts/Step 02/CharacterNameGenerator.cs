@@ -18,11 +18,20 @@ public class CharacterNameGenerator : MonoBehaviour
     [Header("Possible nicknames")]
     private List<string> nicknames = new List<string>(); // a list of all possible nick names for us to use.
 
+    public GameObject[] Characters;
+
 
     private void Awake()
     {
+        for (int i = 0; i < Characters.Length; i++)
+        {
+            Characters[i] = GameObject.FindGameObjectWithTag("Player");
+            Characters[i].tag = "Respawn";
+        }
         // call the create names function
         CreateNames();
+
+        
     }
 
     /// <summary>
@@ -32,8 +41,31 @@ public class CharacterNameGenerator : MonoBehaviour
     /// </summary>
     public void CreateNames()
     {
-        // So here we would ideally want to be able to add some names to our first names, last names and nick names lists.
+        // So here we would ideally want to be able to add some names to our first names, last names and nick names lists.\
+        firstNames.Add("Leroy");
+        firstNames.Add("Jim");
+        firstNames.Add("Smith");
+        firstNames.Add("Leramy");
+        firstNames.Add("Don");
+        firstNames.Add("Cheetoh");
 
+        lastNames.Add("Carrey");
+        lastNames.Add("Smith");
+        lastNames.Add("Chonce");
+        lastNames.Add("Abraham");
+        lastNames.Add("Gray");
+        lastNames.Add("Epsilon");
+
+        nicknames.Add("BankerBoi");
+        nicknames.Add("DaTruff");
+        nicknames.Add("Smort");
+        nicknames.Add("Ebic");
+        nicknames.Add("Cool Guy Mc Epic Man");
+        nicknames.Add("Champion of Pogs");
+
+        print(firstNames[1]);
+
+        SetIndividualCharacter();
     }
 
     /// <summary>
@@ -41,10 +73,14 @@ public class CharacterNameGenerator : MonoBehaviour
     /// Step 02: Called when we press the test step 02 button and sets each dancer to have a name.
     /// </summary>
     /// <param name="character"></param>
-    public void SetIndividualCharacter(CharacterName character)
+    public void SetIndividualCharacter()
     {
         // So here rather than each character being called Blanky Blank Blank, we probably want it to be a random first,last and nickname
-
+        for (int i = 0; i < Characters.Length; i++)
+        {
+            Characters[i].name = firstNames[Random.Range(0, firstNames.Count)] + " '" + nicknames[Random.Range(0, nicknames.Count)] + "' " + lastNames[Random.Range(0, lastNames.Count)];
+            Characters[i].GetComponentInChildren<TMPro.TextMeshPro>().text = Characters[i].name;
+        }
     }
 
     /// <summary>
