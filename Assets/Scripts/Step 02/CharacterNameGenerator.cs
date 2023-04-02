@@ -23,15 +23,24 @@ public class CharacterNameGenerator : MonoBehaviour
 
     private void Awake()
     {
+    }
+
+    public void FindSet()
+    {
         for (int i = 0; i < Characters.Length; i++)
         {
             Characters[i] = GameObject.FindGameObjectWithTag("Player");
-            Characters[i].tag = "Respawn";
+            if (Characters[i] != null)
+            {
+                Characters[i].tag = "Respawn";
+            }
+            else
+            {
+                FindSet();
+            }
         }
         // call the create names function
         CreateNames();
-
-        
     }
 
     /// <summary>

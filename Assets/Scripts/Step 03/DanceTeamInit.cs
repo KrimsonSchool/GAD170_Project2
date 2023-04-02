@@ -20,7 +20,23 @@ public class DanceTeamInit : MonoBehaviour
     public void InitTeams()
     {
         // So for each team we have, we want to call two functions, one is SetTroupName and we need to pass in a team name; the other is SpawnTeam and need to pass in the dancer prefab
+        for (int i = 0; i < teamA.characterSpawnPoints.Count; i++)
+        {
+            teamA.allDancers[i]=Instantiate(dancerPrefab, teamA.characterSpawnPoints[i]).GetComponent<Character>();
+            teamB.allDancers[i] = Instantiate(dancerPrefab, teamB.characterSpawnPoints[i]).GetComponent<Character>();
+            teamA.allDancers[i].myTeam = teamA;
+            teamA.allDancers[i].team = 0;
+            teamB.allDancers[i].myTeam = teamB;
+            teamB.allDancers[i].team = 1;
+        }
 
+        for (int i = 0; i < 3; i++)
+        {
+            teamA.allDancers[i].loc = i;
+            teamB.allDancers[i].loc = i;
+        }
+
+        GetComponent<CharacterNameGenerator>().FindSet();
     }
 
 }

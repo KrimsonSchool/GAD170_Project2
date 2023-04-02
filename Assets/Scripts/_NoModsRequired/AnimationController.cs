@@ -54,7 +54,7 @@ public class AnimationController : MonoBehaviour
         if(character != null)
         {
             ourSpot.intensity = Mathf.Lerp(ourSpot.intensity, character.isSelected ? selectedInten : baseLightInten, lightIntenLerpSpeed * Time.deltaTime);
-            ourSpot.intensity = Mathf.Lerp(defeatedInten, ourSpot.intensity, character.myStatsSystem.playerHealth);
+            ourSpot.intensity = Mathf.Lerp(defeatedInten, ourSpot.intensity, character.HealthSystem.Health);
         }
 
         if(stats != null)

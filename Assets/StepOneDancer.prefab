@@ -775,9 +775,10 @@ GameObject:
   - component: {fileID: 1066119293026193350}
   - component: {fileID: 3144788816625672636}
   - component: {fileID: 7761575002068945469}
+  - component: {fileID: -6323323769094192809}
   m_Layer: 0
   m_Name: StepOneDancer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -813,7 +814,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38827a6739669574f9ef0a0527e44511, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 0
+  level: 1
   xp: 0
   xpThreshold: 0
   strength: 0
@@ -867,6 +868,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 1
   HpImage: {fileID: 8916382911097365615}
+--- !u!114 &-6323323769094192809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3259152423964276197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c3eadf6b068dab46a4fcaa2950d49ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StatSystem: {fileID: 5300885734486894686}
+  LevelSystem: {fileID: 1066119293026193350}
+  PowerSystem: {fileID: 3144788816625672636}
+  HealthSystem: {fileID: 7761575002068945469}
+  myTeam: {fileID: 0}
+  team: 0
+  isSelected: 0
+  animController: {fileID: 0}
+  l: {fileID: 4115486116671817592}
 --- !u!1 &4115486116671817592
 GameObject:
   m_ObjectHideFlags: 0
@@ -913,7 +935,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 2802.5015
+  m_Intensity: 4194304
   m_Range: 8.042656
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -954,7 +976,7 @@ Light:
   m_RenderingLayerMask: 1
   m_Lightmapping: 4
   m_LightShadowCasterMode: 2
-  m_AreaSize: {x: 1, y: 1}
+  m_AreaSize: {x: 0.5, y: 0.5}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 1
@@ -995,14 +1017,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 600
+  m_Intensity: 25
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
   m_SpotIESCutoffPercent: 100
   m_LightDimmer: 1
   m_VolumetricDimmer: 1
-  m_LightUnit: 0
+  m_LightUnit: 4
   m_FadeDistance: 10000
   m_VolumetricFadeDistance: 10000
   m_AffectDiffuse: 1

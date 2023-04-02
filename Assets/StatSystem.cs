@@ -61,7 +61,7 @@ public class StatSystem : MonoBehaviour
         }
         else
         {
-            error = true;
+            //error = true;
             if (error)
             {
                 GameObject cnv = new GameObject();
