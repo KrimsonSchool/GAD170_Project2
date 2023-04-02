@@ -23,7 +23,7 @@ public class FightManager : MonoBehaviour
 
     public TMPro.TextMeshProUGUI winChanceText;
 
-    public float[] winChances;
+    public float[] winChances; 
     public void Start()
     {
         if (FindObjectOfType<CharacterNameGenerator>() != null)
@@ -53,6 +53,19 @@ public class FightManager : MonoBehaviour
         //print(chances);
 
         winChanceText.text = "Win Chances: " + winChances[0] + "% VS " + winChances[1] +"%";
+
+        if (winChances[0] > winChances[1])
+        {
+            Characters[1].GetComponent<HealthSystem>().Health -= 0.1f;
+            Characters[0].GetComponent<StatSystem>().xp += 25; 
+            print(Characters[0].name);
+        }
+        else if(winChances[1] > winChances[0])
+        {
+            Characters[0].GetComponent<HealthSystem>().Health -= 0.1f;
+            Characters[1].GetComponent<StatSystem>().xp += 25;
+            print(Characters[1].name);
+        }
     }
 
     /// <summary>

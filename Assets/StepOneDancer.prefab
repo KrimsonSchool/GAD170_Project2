@@ -774,6 +774,7 @@ GameObject:
   - component: {fileID: 5300885734486894686}
   - component: {fileID: 1066119293026193350}
   - component: {fileID: 3144788816625672636}
+  - component: {fileID: 7761575002068945469}
   m_Layer: 0
   m_Name: StepOneDancer
   m_TagString: Untagged
@@ -852,6 +853,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerLevel: 0
+--- !u!114 &7761575002068945469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3259152423964276197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7767dc41973f0f64d8c5d2a7b9adb683, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 1
+  HpImage: {fileID: 8916382911097365615}
 --- !u!1 &4115486116671817592
 GameObject:
   m_ObjectHideFlags: 0

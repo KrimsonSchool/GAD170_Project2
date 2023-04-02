@@ -34,7 +34,6 @@ public class StatSystem : MonoBehaviour
         statTotal = 15;
         xpThreshold = 100;
 
-        error = true;
 
     }
 
@@ -62,6 +61,7 @@ public class StatSystem : MonoBehaviour
         }
         else
         {
+            error = true;
             if (error)
             {
                 GameObject cnv = new GameObject();
