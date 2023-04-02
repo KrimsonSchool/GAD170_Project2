@@ -34,6 +34,8 @@ public class Character : MonoBehaviour
 
     public void Update()
     {
+        //print(GameObject.Find("TeamA").GetComponent<DanceTeam>().allDancers[loc]);
+        //print(GameObject.Find("TeamB").GetComponent<DanceTeam>().allDancers[loc]);
         if (GetComponent<HealthSystem>().Health <= 0)
         {
             RemoveFromTeam();
@@ -43,11 +45,11 @@ public class Character : MonoBehaviour
     {
         if(team == 0)
         {
-            GetComponent<DanceTeamInit>().teamA.allDancers[loc] = null;
+            GameObject.Find("TeamA").GetComponent<DanceTeam>().allDancers.Remove(this);
         }
         else
         {
-            GetComponent<DanceTeamInit>().teamB.allDancers[loc] = null;
+            GameObject.Find("TeamB").GetComponent<DanceTeam>().allDancers.Remove(this);
         }
 
         Destroy(gameObject);

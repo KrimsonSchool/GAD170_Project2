@@ -38,7 +38,7 @@ public class BattleSystem : MonoBehaviour
 
             Character teamAcharacter = null; // instead of null (nothing) we probably want a random charcter from each team.
             Character teamBCharacter = null;
-            fightManager.Fight(teamAcharacter, teamBCharacter);
+            //fightManager.Fight(teamAcharacter, teamBCharacter);
         }
         else
         {

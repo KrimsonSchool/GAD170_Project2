@@ -33,32 +33,33 @@ public class FightManager : MonoBehaviour
 
     public void Update()
     {
+        if (GameObject.Find("TeamA").GetComponent<DanceTeam>().allDancers.Count == 0)
+        {
+            winner = "Team A Wins!!!";
+            winnerText.enabled = true;
+            winnerText.text = winner;
+        }
+        else if (GameObject.Find("TeamB").GetComponent<DanceTeam>().allDancers.Count == 0)
+        {
+            winner = "Team B Wins!!!";
+            winnerText.enabled = true;
+            winnerText.text = winner;
+        }
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             tA.l.SetActive(false);
             tB.l.SetActive(false);
             TestImplementation();
         }
+
         if (tA == null)
         {
-            tA = GetComponent<DanceTeamInit>().teamA.allDancers[Random.Range(0, 3)].GetComponent<Character>();
+            tA = GameObject.Find("TeamA").GetComponent<DanceTeam>().allDancers[Random.Range(0, 3)].GetComponent<Character>();
         }
         if(tB== null)
         {
-            tB = GetComponent<DanceTeamInit>().teamB.allDancers[Random.Range(0, 3)].GetComponent<Character>();
-        }
-
-        if(GetComponent<DanceTeamInit>().teamA.allDancers[0] == null && GetComponent<DanceTeamInit>().teamA.allDancers[1] == null && GetComponent<DanceTeamInit>().teamA.allDancers[2] == null)
-        {
-            winner = "Team A Wins!!!";
-            winnerText.enabled = true;
-            winnerText.text = winner;
-        }
-        else if (GetComponent<DanceTeamInit>().teamB.allDancers[0] == null && GetComponent<DanceTeamInit>().teamB.allDancers[1] == null && GetComponent<DanceTeamInit>().teamB.allDancers[2] == null)
-        {
-            winner = "Team B Wins!!!";
-            winnerText.enabled = true;
-            winnerText.text = winner;
+            tB = GameObject.Find("TeamB").GetComponent<DanceTeam>().allDancers[Random.Range(0, 3)].GetComponent<Character>();
         }
     }
 
@@ -123,12 +124,11 @@ public class FightManager : MonoBehaviour
 
     public void TestImplementation()
     {
-        tA = GetComponent<DanceTeamInit>().teamA.allDancers[Random.Range(0, GetComponent<DanceTeamInit>().teamA.allDancers.Count)].GetComponent<Character>();
         tB = GetComponent<DanceTeamInit>().teamB.allDancers[Random.Range(0, GetComponent<DanceTeamInit>().teamB.allDancers.Count)].GetComponent<Character>();
+        tA = GetComponent<DanceTeamInit>().teamA.allDancers[Random.Range(0, GetComponent<DanceTeamInit>().teamA.allDancers.Count)].GetComponent<Character>();
 
         tA.l.SetActive(true);
         tB.l.SetActive(true);
-
         Fight(tA, tB);
     }
 
